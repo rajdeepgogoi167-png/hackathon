@@ -9,19 +9,23 @@ class Doc(BaseModel):
 	id: int
 	name: str
 	
-class symptom(BaseModel):
-	s
-docs: List[Doc] = []
-symp: List[symptom] = []
+class patient(BaseModel):
+	patient_id: int
+	patient_name: str
+	symptom: str
+	
+	
+doctors: List[Doc] = []
+symp: List[patient] = []
 
 @app.get("/")
 def read_root():
 	return {"message": "Welcome"}
 	
-@app.get("/docs")
+@app.get("/doctors")
 def det_docs():
 	return docs
 	
-@app.post("/docs")
-def add_symp(symptoms):
+@app.post("/doctors")
+def add_symp(patient):
 	
